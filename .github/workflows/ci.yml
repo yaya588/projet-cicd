@@ -1,0 +1,31 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Télécharger le code
+      uses: actions/checkout@v4
+
+    - name: Installer Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Installer les dépendances
+      run: |
+        pip install -r requirements.txt
+
+    - name: Vérifier la syntaxe Python
+      run: |
+        python -m py_compile app.py
+
+    - name: Pipeline terminé
+      run: echo "CI exécuté avec succès"
