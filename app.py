@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def accueil():
     return jsonify({
-        "message": "version 2 du service"
+        "message": "l3 info enastic"
     })
 
 if __name__ == "__main__":
